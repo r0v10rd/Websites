@@ -4,7 +4,7 @@ body {
 }
 header{
     border: 2px solid rgb(7, 112, 164);
-    background-color: rgb(2, 79, 118);
+    background-color: rgb(2, 79, 118); /* Done*/
 }
 nav>ul{
     color: aqua ;
