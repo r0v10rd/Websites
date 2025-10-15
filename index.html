@@ -1,44 +1,248 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ravi Ardhana - WebDev</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>Ravi Ardhana - Web Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000021;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a855f7; /* Purple */
+            border-radius: 4px;
+        }
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000021; /* Deep Navy Background */
+            color: #e5e7eb; /* Light Gray Text */
+        }
+        /* Hero Section Gradient Border */
+        .firstSection {
+            border-bottom: 1px solid #1f2937; /* Dark separator line */
+            padding-bottom: 4rem;
+        }
+        .hero-text-container {
+            position: relative;
+        }
+        .hero-text-container::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -30px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #6b21a8, #a855f7, #6b21a8);
+            border-radius: 2px;
+            opacity: 0.5;
+            box-shadow: 0 0 10px #a855f7;
+        }
+        /* Skills Grid */
+        .skill-card {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #1f2937;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .skill-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #a855f7;
+            box-shadow: 0 8px 12px rgba(168, 85, 247, 0.3);
+        }
 
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            .firstSection {
+                flex-direction: column;
+                padding-top: 3rem;
+            }
+            .leftSection {
+                order: 2;
+                width: 100% !important;
+                text-align: center;
+                margin-top: 2rem;
+            }
+            .rightSection {
+                order: 1;
+                width: 100% !important;
+                display: flex;
+                justify-content: center;
+            }
+            .rightSection img {
+                width: 70%;
+                max-width: 300px;
+            }
+            nav ul {
+                padding: 0 10px;
+            }
+            nav .left {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
 <body>
     <header>
-        <nav><ul>
-                <li><a href="home.com" >Home</a></li>
-                <li><a href="projects.com">Projects</a></li>
-                <li><a href="contacts.com">Contact me</a></li>
-            </ul></nav>
+        <nav class="flex justify-around items-center h-20 bg-[#12123e] shadow-lg">
+            <div class="left text-2xl font-semibold text-white">Ravi Ardhana</div>
+            <div class="right">
+                <ul class="flex space-x-6 md:space-x-12">
+                    <li><a href="#home" class="text-white hover:text-[#a855f7] transition duration-200">Home</a></li>
+                    <li><a href="#about" class="text-white hover:text-[#a855f7] transition duration-200">About</a></li>
+                    <li><a href="#skills" class="text-white hover:text-[#a855f7] transition duration-200">Skills</a></li>
+                    <li><a href="#contact" class="text-white hover:text-[#a855f7] transition duration-200">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    <main>
 
-        <div class="hero">
-            <section class="profile" id="profile-section">
-                <img src="profilepic.jpg" alt="">
-                <h1>Ravi Ardhana</h1>
-            </section>
-            <section class="bio" id="about">
-                <h2>*About Me*</h2>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quae architecto, accusamus harum consectetur
-                repellendus est officiis quaerat molestiae molestias, beatae vero aspernatur facere assumenda qui blanditiis
-                id voluptas! Autem inventore, vero fugit unde nesciunt laudantium quasi necessitatibus dicta itaque nihil
-                accusantium pariatur, incidunt provident.
-            </section>
-        </div>
+    <main class="container mx-auto p-4 md:p-8">
+        <!-- Hero Section -->
+        <section id="home" class="firstSection flex flex-wrap justify-around items-center pt-16 pb-10 min-h-[70vh]">
+            <div class="leftSection w-full md:w-[45%] text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight hero-text-container">
+                <p class="text-gray-300 text-3xl font-normal mb-2">Hello, I'm</p>
+                <span class="text-white block">Ravi Ardhana</span>
+                <p class="text-3xl text-gray-400 font-medium mt-4">
+                    A Passionate <span id="element" class="text-[#a855f7]"></span>
+                </p>
+                <!-- CTA Button -->
+                <div class="mt-8 flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 bg-[#a855f7] text-white font-semibold rounded-lg shadow-lg hover:bg-purple-600 transition duration-300">
+                        Hire Me
+                    </a>
+                    <a href="#" class="px-6 py-3 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-[#a855f7] hover:text-[#a855f7] transition duration-300">
+                        View Resume
+                    </a>
+                </div>
+            </div>
+            
+            <div class="rightSection w-full md:w-[35%] mt-10 md:mt-0 flex justify-center">
+                <!-- Placeholder Image (replace with a real portfolio picture) -->
+                <img src="https://placehold.co/400x400/312e81/ffffff?text=RAVI+ARDHANA&font=inter" alt="Ravi Ardhana Profile" class="w-full max-w-sm rounded-full border-4 border-[#a855f7] shadow-2xl transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x400/312e81/ffffff?text=Ravi+Profile'">
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-16 md:py-24">
+            <h2 class="text-center text-4xl md:text-5xl font-bold mb-4 text-[#a855f7]">About Me</h2>
+            <p class="text-center text-gray-500 mb-12 text-lg">Who I am and what drives me.</p>
+            
+            <div class="bg-[#12123e] p-8 md:p-12 rounded-xl shadow-2xl max-w-4xl mx-auto">
+                <p class="text-lg md:text-xl leading-relaxed text-gray-300">
+                    I am a dedicated and results-driven frontend developer with a robust foundation in programming and modern web technologies. My technical toolkit includes:
+                </p>
+                
+                <ul class="list-disc list-inside mt-6 text-lg md:text-xl text-gray-300 space-y-2">
+    <li><span class="text-[#a855f7] font-semibold">Frontend Core:</span> HTML, CSS, JavaScript</li>
+    <li><span class="text-[#a855f7] font-semibold">Backend/Logic:</span> C and Python</li>
+    <li><span class="text-[#a855f7] font-semibold">Design Focus:</span> Building responsive and accessible user interfaces.</li>
+</ul>
+                
+
+                <p class="text-lg md:text-xl leading-relaxed text-gray-300 mt-6">
+                    I am driven by a passion for transforming complex problems into elegant web solutions and am currently eager to apply my skills in an exciting internship or collaborative project.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 md:py-24">
+            <h2 class="text-center text-4xl md:text-5xl font-bold mb-4 text-[#a855f7]">Technical Skills</h2>
+            <p class="text-center text-gray-500 mb-12 text-lg">My primary tools for building the web.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <!-- Skill Card: HTML/CSS -->
+                <div class="skill-card bg-[#12123e] p-6 rounded-xl text-center">
+                    <span class="text-5xl mb-3 block" role="img" aria-label="Code">
+                        &#128187;
+                    </span>
+                    <h3 class="text-xl font-semibold text-white">HTML & CSS</h3>
+                    <p class="text-sm text-gray-400">Semantic Structure & Responsive Design</p>
+                </div>
+
+                <!-- Skill Card: JavaScript -->
+                <div class="skill-card bg-[#12123e] p-6 rounded-xl text-center">
+                    <span class="text-5xl mb-3 block text-yellow-500" role="img" aria-label="Lightning">
+                        &#9889;
+                    </span>
+                    <h3 class="text-xl font-semibold text-white">JavaScript</h3>
+                    <p class="text-sm text-gray-400">Client-Side Logic & Interactivity</p>
+                </div>
+
+                <!-- Skill Card: Python -->
+                <div class="skill-card bg-[#12123e] p-6 rounded-xl text-center">
+                    <span class="text-5xl mb-3 block text-green-500" role="img" aria-label="Snake">
+                        &#128013;
+                    </span>
+                    <h3 class="text-xl font-semibold text-white">Python</h3>
+                    <p class="text-sm text-gray-400">Backend Scripting & Automation</p>
+                </div>
+
+                <!-- Skill Card: C -->
+                <div class="skill-card bg-[#12123e] p-6 rounded-xl text-center">
+                    <span class="text-5xl mb-3 block text-blue-500" role="img" aria-label="Chip">
+                        &#128188;
+                    </span>
+                    <h3 class="text-xl font-semibold text-white">C / Algorithms</h3>
+                    <p class="text-sm text-gray-400">Data Structures & Core Logic</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24">
+            <h2 class="text-center text-4xl md:text-5xl font-bold mb-4 text-[#a855f7]">Get In Touch</h2>
+            <p class="text-center text-gray-500 mb-12 text-lg">Let's build something amazing together.</p>
+            
+            <div class="max-w-xl mx-auto bg-[#12123e] p-8 rounded-xl shadow-2xl">
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg bg-[#000021] border border-gray-600 focus:border-[#a855f7] text-white transition duration-200">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-[#000021] border border-gray-600 focus:border-[#a855f7] text-white transition duration-200">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg bg-[#000021] border border-gray-600 focus:border-[#a855f7] text-white transition duration-200"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-[#a855f7] text-white font-semibold rounded-lg shadow-lg hover:bg-purple-600 transition duration-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
-    <footer>
-        <ul>
-            <li><a href="https://mail.google.com/mail/u/0/#all">Email</a></li>
-            <li><a href="https://www.instagram.com/">Instagram</a></li>
-            <li><a href="https://www.youtube.com/">Youtube</a></li>
-        </ul>
-    </footer>
-</body>
 
+    <footer class="bg-[#12123e] text-gray-400 py-6 mt-16">
+        <div class="container mx-auto text-center text-sm">
+            <p>&copy; 2024 Ravi Ardhana. All rights reserved. | Built with Passion.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typed.js initialization
+        var typed = new Typed('#element', {
+            strings: [
+                'Web Developer.',
+                'Frontend Developer.',
+                'Problem Solver.',
+                'C & Python Programmer.'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+</body>
 </html>
